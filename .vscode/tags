@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Blueprint	../vsphere_ds_exporter/views.py	/^from flask import Blueprint, render_template$/;"	kind:namespace	line:5
+Flask	../vsphere_ds_exporter/__init__.py	/^from flask import Flask$/;"	kind:namespace	line:5
+Manager	../manage.py	/^from flask_script import Manager$/;"	kind:namespace	line:5
+__init__.py	../vsphere_ds_exporter/__init__.py	1;"	kind:file	line:1
+absolute_import	../manage.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+absolute_import	../vsphere_ds_exporter/__init__.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+absolute_import	../vsphere_ds_exporter/views.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+app	../manage.py	/^from vsphere_ds_exporter import app$/;"	kind:namespace	line:6
+app	../vsphere_ds_exporter/__init__.py	/^app = Flask(__name__)$/;"	kind:variable	line:9
+details	../vsphere_ds_exporter/views.py	/^def details():$/;"	kind:function	line:16
+index	../vsphere_ds_exporter/views.py	/^def index():$/;"	kind:function	line:11
+manage.py	../manage.py	1;"	kind:file	line:1
+manager	../manage.py	/^manager = Manager(app)$/;"	kind:variable	line:9
+metrics	../vsphere_ds_exporter/__init__.py	/^from vsphere_ds_exporter.views import metrics$/;"	kind:namespace	line:7
+metrics	../vsphere_ds_exporter/views.py	/^metrics = Blueprint('metrics', __name__)$/;"	kind:variable	line:7
+render_template	../vsphere_ds_exporter/views.py	/^from flask import Blueprint, render_template$/;"	kind:namespace	line:5
+unicode_literals	../manage.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+unicode_literals	../vsphere_ds_exporter/__init__.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+unicode_literals	../vsphere_ds_exporter/views.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+views.py	../vsphere_ds_exporter/views.py	1;"	kind:file	line:1
