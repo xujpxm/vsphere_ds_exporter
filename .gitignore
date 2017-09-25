@@ -25,7 +25,7 @@ ENV/
 .idea
 
 # VSCODE
-.vscode
+.vscode/
 .editorconfig
 .eslintrc.json
 .eslintignore
