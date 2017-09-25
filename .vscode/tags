@@ -4,23 +4,66 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+BASE_DIR	../vsphere_ds_exporter/__init__.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:13
 Blueprint	../vsphere_ds_exporter/views.py	/^from flask import Blueprint, render_template$/;"	kind:namespace	line:5
-Flask	../vsphere_ds_exporter/__init__.py	/^from flask import Flask$/;"	kind:namespace	line:5
+Disconnect	../vsphere_ds_exporter/libs/vsphere.py	/^from pyVim.connect import SmartConnect, Disconnect$/;"	kind:namespace	line:6
+ERROR_LOG_PATH	../vsphere_ds_exporter/libs/logger.py	/^    ERROR_LOG_PATH = os.path.join(LOG_DIR, 'error.log')$/;"	kind:variable	line:12
+ExporterLogger	../vsphere_ds_exporter/libs/logger.py	/^class ExporterLogger(object):$/;"	kind:class	line:10
+FileHandler	../vsphere_ds_exporter/libs/logger.py	/^from logbook import Logger, FileHandler, set_datetime_format$/;"	kind:namespace	line:6
+Flask	../vsphere_ds_exporter/__init__.py	/^from flask import Flask$/;"	kind:namespace	line:6
+LOG_DIR	../vsphere_ds_exporter/__init__.py	/^LOG_DIR = os.path.join(BASE_DIR, 'logs')$/;"	kind:variable	line:14
+LOG_DIR	../vsphere_ds_exporter/libs/logger.py	/^from vsphere_ds_exporter import LOG_DIR$/;"	kind:namespace	line:7
+Logger	../vsphere_ds_exporter/libs/logger.py	/^from logbook import Logger, FileHandler, set_datetime_format$/;"	kind:namespace	line:6
+METRICS	../vsphere_ds_exporter/const.py	/^METRICS = {$/;"	kind:variable	line:4
 Manager	../manage.py	/^from flask_script import Manager$/;"	kind:namespace	line:5
+Response	../vsphere_ds_exporter/views.py	/^from flask import Response$/;"	kind:namespace	line:6
+SmartConnect	../vsphere_ds_exporter/libs/vsphere.py	/^from pyVim.connect import SmartConnect, Disconnect$/;"	kind:namespace	line:6
+__init__	../vsphere_ds_exporter/libs/logger.py	/^    def __init__(self, logger_name):$/;"	kind:member	line:14
 __init__.py	../vsphere_ds_exporter/__init__.py	1;"	kind:file	line:1
+__init__.py	../vsphere_ds_exporter/libs/__init__.py	1;"	kind:file	line:1
 absolute_import	../manage.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
 absolute_import	../vsphere_ds_exporter/__init__.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+absolute_import	../vsphere_ds_exporter/const.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:2
+absolute_import	../vsphere_ds_exporter/libs/logger.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
+absolute_import	../vsphere_ds_exporter/libs/vsphere.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
 absolute_import	../vsphere_ds_exporter/views.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+absolute_import	../wsgi.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:5
 app	../manage.py	/^from vsphere_ds_exporter import app$/;"	kind:namespace	line:6
-app	../vsphere_ds_exporter/__init__.py	/^app = Flask(__name__)$/;"	kind:variable	line:9
-details	../vsphere_ds_exporter/views.py	/^def details():$/;"	kind:function	line:16
-index	../vsphere_ds_exporter/views.py	/^def index():$/;"	kind:function	line:11
+app	../vsphere_ds_exporter/__init__.py	/^app = Flask(__name__)$/;"	kind:variable	line:10
+app	../wsgi.py	/^from vsphere_ds_exporter import app$/;"	kind:namespace	line:7
+connect_vc	../vsphere_ds_exporter/libs/vsphere.py	/^def connect_vc(host, username, password):$/;"	kind:function	line:16
+const.py	../vsphere_ds_exporter/const.py	1;"	kind:file	line:1
+context	../vsphere_ds_exporter/libs/vsphere.py	/^context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)$/;"	kind:variable	line:12
+details	../vsphere_ds_exporter/views.py	/^def details():$/;"	kind:function	line:17
+disconnect_vc	../vsphere_ds_exporter/libs/vsphere.py	/^def disconnect_vc(si):$/;"	kind:function	line:36
+division	../vsphere_ds_exporter/const.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:2
+division	../vsphere_ds_exporter/libs/logger.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
+division	../vsphere_ds_exporter/libs/vsphere.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
+division	../wsgi.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:5
+get_error_logger	../vsphere_ds_exporter/libs/logger.py	/^    def get_error_logger(self):$/;"	kind:member	line:18
+get_logger	../vsphere_ds_exporter/libs/logger.py	/^    def get_logger(self, logger_path):$/;"	kind:member	line:24
+get_vc_dc	../vsphere_ds_exporter/libs/vsphere.py	/^def get_vc_dc(vc_content):$/;"	kind:function	line:50
+index	../vsphere_ds_exporter/views.py	/^def index():$/;"	kind:function	line:12
+logger.py	../vsphere_ds_exporter/libs/logger.py	1;"	kind:file	line:1
+logger_config	../vsphere_ds_exporter/libs/vsphere.py	/^from libs.logger import logger_config$/;"	kind:namespace	line:8
 manage.py	../manage.py	1;"	kind:file	line:1
 manager	../manage.py	/^manager = Manager(app)$/;"	kind:variable	line:9
-metrics	../vsphere_ds_exporter/__init__.py	/^from vsphere_ds_exporter.views import metrics$/;"	kind:namespace	line:7
-metrics	../vsphere_ds_exporter/views.py	/^metrics = Blueprint('metrics', __name__)$/;"	kind:variable	line:7
+metrics	../vsphere_ds_exporter/__init__.py	/^from vsphere_ds_exporter.views import metrics$/;"	kind:namespace	line:8
+metrics	../vsphere_ds_exporter/views.py	/^metrics = Blueprint('metrics', __name__)$/;"	kind:variable	line:8
+os	../vsphere_ds_exporter/__init__.py	/^import os$/;"	kind:namespace	line:5
+os	../vsphere_ds_exporter/libs/logger.py	/^import os$/;"	kind:namespace	line:4
 render_template	../vsphere_ds_exporter/views.py	/^from flask import Blueprint, render_template$/;"	kind:namespace	line:5
+set_datetime_format	../vsphere_ds_exporter/libs/logger.py	/^from logbook import Logger, FileHandler, set_datetime_format$/;"	kind:namespace	line:6
+ssl	../vsphere_ds_exporter/libs/vsphere.py	/^import ssl$/;"	kind:namespace	line:4
 unicode_literals	../manage.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
 unicode_literals	../vsphere_ds_exporter/__init__.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+unicode_literals	../vsphere_ds_exporter/const.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:2
+unicode_literals	../vsphere_ds_exporter/libs/logger.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
+unicode_literals	../vsphere_ds_exporter/libs/vsphere.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:3
 unicode_literals	../vsphere_ds_exporter/views.py	/^from __future__ import absolute_import, unicode_literals$/;"	kind:namespace	line:4
+unicode_literals	../wsgi.py	/^from __future__ import absolute_import, unicode_literals, division$/;"	kind:namespace	line:5
 views.py	../vsphere_ds_exporter/views.py	1;"	kind:file	line:1
+vim	../vsphere_ds_exporter/libs/vsphere.py	/^from pyVmomi import vim$/;"	kind:namespace	line:7
+vsphere.py	../vsphere_ds_exporter/libs/vsphere.py	1;"	kind:file	line:1
+vsphere_logger	../vsphere_ds_exporter/libs/vsphere.py	/^vsphere_logger = logger_config('vsphere', 'vsphere.log')$/;"	kind:variable	line:10
+wsgi.py	../wsgi.py	1;"	kind:file	line:1
