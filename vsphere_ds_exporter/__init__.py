@@ -20,15 +20,54 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 
 
-def log_setup():
-    """ log config"""
-    log_conf_path = os.path.join(BASE_DIR, 'log.yml')
-    try:
-        with open(log_conf_path, 'r') as f:
-            logging.config.dictConfig(yaml.load(f))
-    except Exception:
-        print(traceback.format_exc())
-        # print("log config file is not found")
+logging_setting = {
+    # logging configuration
+    "version": 1,
+    "formatters": {
+        "simple": {
+            "format": "[%(asctime)s] %(levelname)s: %(name)s: %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+        "exporter": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": os.path.join(LOG_DIR, 'vsphere_ds_exporter.log'),
+            "when": "midnight",
+            "backupCount": 30
+        },
+    },
+    "loggers": {
+        "console": {
+            "level": "DEBUG",
+            "handlers": [
+                "console"
+            ],
+            "propagate": False
+        },
+        "ds_exporter": {
+            "level": "DEBUG",
+            "handlers": [
+                "exporter",
+            ],
+            "propagate": False
+        }
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": [
+            "console",
+            "exporter"
+        ],
+    }
+}
 
 
-log_setup()
+logging.config.dictConfig(logging_setting)
