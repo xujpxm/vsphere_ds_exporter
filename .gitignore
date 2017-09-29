@@ -38,6 +38,7 @@ ENV/
 *.retry
 
 # Django stuff
+.logs/
 *.log
 *.pot
 log.ymal
