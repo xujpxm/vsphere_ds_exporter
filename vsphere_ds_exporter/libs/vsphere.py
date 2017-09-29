@@ -72,7 +72,7 @@ def get_datastore(dc_list):
     datastores = [datastore for dc in dc_list for datastore in dc.datastore]
     valid_ds = (ds for ds in datastores
                 if ds.summary.multipleHostAccess
-                if 'qrm'.upper() not in ds.name.upper()
+                if 'qrm'.upper() or 'quorum'.upper() or 'vcops'.upper() not in ds.name.upper()
                 if ds.summary.type == 'VMFS')
     # for ds in datastores:
     # if not ds.summary.multipleHostAccess:

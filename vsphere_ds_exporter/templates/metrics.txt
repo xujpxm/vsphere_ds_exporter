@@ -7,6 +7,6 @@
 {% for freespace in free_list %}{{ freespace }}
 {% endfor%} 
 # HELP vsphere_datastore_uncommitted_bytes vsphere datastore uncommited space size 
-# TYPE vsphere_datastore_uncommitted_bytes gauge 
+# TYPE vsphere_datastore_uncommitted_bytes gauge
 {% for uncommited in ucmtd_list %}{{ uncommited }}
 {% endfor %}
