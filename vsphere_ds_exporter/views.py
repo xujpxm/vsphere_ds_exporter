@@ -19,11 +19,13 @@ def index():
 @metrics.route('/metrics', methods=['GET'])
 def details():
     start_time = datetime.now()
-    # Get exporter datastores
-    si = vsphere.connect_vc()
+    si = vsphere.connect_vc() if vsphere.connect_vc() else False
+    if not si:
+        return "vCenter Login Error!"
     logger.info('vCenter login success~')
     content = si.content
     vc_datacenters = vsphere.get_vc_dc(content)
+    # Get exporter datastores
     datastore = [n for n in vsphere.get_datastore(vc_datacenters)]
     logger.info('Datastore Query Starting')
     # Create a list of datastore and it's capacity/freespace/uncommited size string list

@@ -33,8 +33,10 @@ def connect_vc():
     except vim.fault.InvalidLogin:
         logger.error(
             'Unable to login because of the invalid username and password!')
+        return False
     except Exception:
         logger.error(traceback.format_exc())
+        return False
 
 
 def disconnect_vc(si):
