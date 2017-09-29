@@ -70,18 +70,23 @@ def get_datastore(dc_list):
     :return: datastore object list
     """
     datastores = [datastore for dc in dc_list for datastore in dc.datastore]
-    for ds in datastores:
-        if not ds.summary.multipleHostAccess:
-            # datastore must be access by multiple esxi host
-            continue
-        if 'qrm'.upper() in ds.name.upper():
-            # exclude 'QRM' in datastore name
-            continue
-        if ds.summary.type != 'VMFS':
-            # must be vmfs file type
-            continue
-        logger.info('Get vcenter datastore %s success~' % ds.name)
-        yield ds
+    valid_ds = (ds for ds in datastores
+                if ds.summary.multipleHostAccess
+                if 'qrm'.upper() not in ds.name.upper()
+                if ds.summary.type == 'VMFS')
+    # for ds in datastores:
+    # if not ds.summary.multipleHostAccess:
+    # datastore must be access by multiple esxi host
+    # continue
+    # if 'qrm'.upper() in ds.name.upper():
+    # exclude 'QRM' in datastore name
+    # continue
+    # if ds.summary.type != 'VMFS':
+    # must be vmfs file type
+    # continue
+    logger.info('Get vcenter datastore %s success~')
+    # yield ds
+    return valid_ds
 
 
 def get_ds_capacity(datastore):
