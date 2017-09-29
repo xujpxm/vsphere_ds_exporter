@@ -28,14 +28,15 @@ def details():
     # Get exporter datastores
     datastore = [n for n in vsphere.get_datastore(vc_datacenters)]
     logger.info('Datastore Query Starting')
-    # Create a list of datastore and it's capacity/freespace/uncommited size string list
-    capacity_list = ['vsphere_datastore_capacity_bytes{datastore=%s} %s'
+    # Create a list of datastore and
+    # it's capacity/freespace/uncommited size string list
+    capacity_list = ['''vsphere_datastore_capacity_bytes{datastore="%s"} %s'''
                      % (ds.name, vsphere.get_ds_capacity(ds)) for ds in datastore]
     logger.info('Get datastore capacity size ok')
-    free_list = ['vsphere_datastore_freespace_bytes{datastore=%s} %s'
+    free_list = ['''vsphere_datastore_freespace_bytes{datastore="%s"} %s'''
                  % (ds.name, vsphere.get_ds_freespace(ds)) for ds in datastore]
     logger.info("Get datastore freeSpace size ok")
-    uncmtd_list = ['vsphere_datastore_uncommited_bytes{datastore=%s} %s'
+    uncmtd_list = ['''vsphere_datastore_uncommited_bytes{datastore="%s"} % s'''
                    % (ds.name, vsphere.get_ds_uncommitted(ds)) for ds in datastore]
     logger.info("Get datastore uncommited size ok")
     vsphere.disconnect_vc(si)
