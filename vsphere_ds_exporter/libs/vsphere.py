@@ -3,6 +3,7 @@
 from __future__ import absolute_import, unicode_literals, division
 import logging
 import os
+import atexit
 import traceback
 
 from pyVim.connect import SmartConnect, Disconnect
@@ -43,9 +44,7 @@ def disconnect_vc(si):
     :return:
     """
     try:
-        Disconnect(si)
-        sock = si._stub.pool[0][0]._wrapped.sock
-        sock.close()
+        atexit.register(Disconnect, si)
     except Exception:
         logger.error(traceback.format_exc())
 
@@ -59,7 +58,6 @@ def get_vc_dc(vc_content):
     root_folder = vc_content.rootFolder
     dc_list = [datacenter for datacenter in root_folder.childEntity if isinstance(
         datacenter, vim.Datacenter)]
-    logger.info('Get vcenter datacenter success~')
     return dc_list
 
 
@@ -91,7 +89,6 @@ def get_ds_capacity(datastore):
     :return: datastore capacity size
     """
     capacity_size = datastore.summary.capacity
-    logger.info('Get datastore {0} capacity success~'.format(datastore.name))
     return capacity_size
 
 
@@ -102,7 +99,6 @@ def get_ds_freespace(datastore):
     :return: datastore freeSpace size
     """
     freespace_size = datastore.summary.freeSpace
-    logger.info('Get datastore {0} freespace success~'.format(datastore.name))
     return freespace_size
 
 
@@ -113,6 +109,4 @@ def get_ds_uncommitted(datastore):
     :return: datastore uncommitted size
     """
     uncommitted_size = datastore.summary.uncommitted
-    logger.info(
-        'Get datastore {0} uncommited space success~'.format(datastore.name))
     return uncommitted_size
