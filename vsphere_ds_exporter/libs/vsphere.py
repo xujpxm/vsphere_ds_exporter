@@ -71,19 +71,14 @@ def get_datastore(dc_list):
     """
     datastores = [datastore for dc in dc_list for datastore in dc.datastore]
     valid_ds = (ds for ds in datastores
+                # datastore must be access by multiple esxi host
                 if ds.summary.multipleHostAccess
-                if 'qrm'.upper() or 'quorum'.upper() or 'vcops'.upper() not in ds.name.upper()
+                # datastore name must include 'TYPE'
+                if 'type'.upper() in ds.name.upper()
+                # datastore name must include 'VOL'
+                if 'vol'.upper() in ds.name.upper()
+                # must be vmfs file type
                 if ds.summary.type == 'VMFS')
-    # for ds in datastores:
-    # if not ds.summary.multipleHostAccess:
-    # datastore must be access by multiple esxi host
-    # continue
-    # if 'qrm'.upper() in ds.name.upper():
-    # exclude 'QRM' in datastore name
-    # continue
-    # if ds.summary.type != 'VMFS':
-    # must be vmfs file type
-    # continue
     logger.info('Get vcenter datastore success~')
     # yield ds
     return valid_ds
