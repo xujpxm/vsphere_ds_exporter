@@ -3,7 +3,7 @@
 {% for capacity in capacity_list %}{{ capacity }}
 {% endfor %}
 # HELP vsphere_datastore_freespace_bytes vsphere datastore free space size 
-# TYPE vsphere_datastore_capacity_bytes gauge 
+# TYPE vsphere_datastore_freespace_bytes gauge 
 {% for freespace in free_list %}{{ freespace }} 
 {% endfor%} 
 # HELP vsphere_datastore_uncommitted_bytes vsphere datastore uncommited space size 

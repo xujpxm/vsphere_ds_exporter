@@ -84,7 +84,7 @@ def get_datastore(dc_list):
     # if ds.summary.type != 'VMFS':
     # must be vmfs file type
     # continue
-    logger.info('Get vcenter datastore %s success~')
+    logger.info('Get vcenter datastore success~')
     # yield ds
     return valid_ds
 
