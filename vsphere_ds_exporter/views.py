@@ -21,6 +21,7 @@ def details():
     start_time = datetime.now()
     si = vsphere.connect_vc()
     if not si:
+        # if login vc error, return success 0
         return Response("vsphere_ds_exporter_success 0", mimetype='text/plain')
     logger.info('vCenter login success~')
     content = si.content
@@ -30,14 +31,14 @@ def details():
     logger.info('Datastore Query Starting')
     # Create a list of datastore and
     # it's capacity/freespace/uncommited size string list
-    capacity_list = ['''vsphere_datastore_capacity_bytes{datastore="%s"} %s'''
-                     % (ds.name, vsphere.get_ds_capacity(ds)) for ds in datastore]
+    capacity_list = ('''vsphere_datastore_capacity_bytes{datastore="%s"} %s'''
+                     % (ds.name, vsphere.get_ds_capacity(ds)) for ds in datastore)
     logger.info('Get datastore capacity size ok')
-    free_list = ['''vsphere_datastore_freespace_bytes{datastore="%s"} %s'''
-                 % (ds.name, vsphere.get_ds_freespace(ds)) for ds in datastore]
+    free_list = ('''vsphere_datastore_freespace_bytes{datastore="%s"} %s'''
+                 % (ds.name, vsphere.get_ds_freespace(ds)) for ds in datastore)
     logger.info("Get datastore freeSpace size ok")
-    uncmtd_list = ['''vsphere_datastore_uncommited_bytes{datastore="%s"} % s'''
-                   % (ds.name, vsphere.get_ds_uncommitted(ds)) for ds in datastore]
+    uncmtd_list = ('''vsphere_datastore_uncommited_bytes{datastore="%s"} % s'''
+                   % (ds.name, vsphere.get_ds_uncommitted(ds)) for ds in datastore)
     logger.info("Get datastore uncommited size ok")
     vsphere.disconnect_vc(si)
     end_time = datetime.now()
