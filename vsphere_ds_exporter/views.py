@@ -19,7 +19,7 @@ def index():
 @metrics.route('/metrics', methods=['GET'])
 def details():
     start_time = datetime.now()
-    si = vsphere.connect_vc() if vsphere.connect_vc() else False
+    si = vsphere.connect_vc()
     if not si:
         return Response("vsphere_ds_exporter_success 0", mimetype='text/plain')
     logger.info('vCenter login success~')
