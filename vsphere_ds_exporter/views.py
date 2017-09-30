@@ -4,7 +4,7 @@
 from __future__ import absolute_import, unicode_literals, division
 import logging
 from datetime import datetime
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, Response
 
 from vsphere_ds_exporter.libs import vsphere
 metrics = Blueprint('metrics', __name__)
@@ -21,7 +21,7 @@ def details():
     start_time = datetime.now()
     si = vsphere.connect_vc() if vsphere.connect_vc() else False
     if not si:
-        return "vsphere_ds_exporter_success 0"
+        return Response("vsphere_ds_exporter_success 0", mimetype='text/plain')
     logger.info('vCenter login success~')
     content = si.content
     vc_datacenters = vsphere.get_vc_dc(content)
