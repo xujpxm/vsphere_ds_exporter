@@ -1,5 +1,7 @@
 # vsphere_ds_exporter
 vSphere DataStore Exporter For Prometheus
+### Using Before 
+You need to add three environment variables: *VC_IP*, *VC_USERNAME*, *VC_PASSWORD*, so that the exporter can login vcenter successfully~
 ### Data Format
 example data:
 curl [http://127.0.0.1:5000/metrics/](http://127.0.0.1:5000/metrics/), You'll see the data format like this:
