@@ -6,7 +6,6 @@ import os
 import traceback
 import logging
 import logging.config
-import yaml
 from flask import Flask
 
 from vsphere_ds_exporter.views import metrics
