@@ -18,7 +18,7 @@ class Config:
 class ProConfig(Config):
     """ Production configuration"""
     DEBUG = False
-    VC_USERNAME = os.environ.get('VC_USER', '')
+    VC_USERNAME = os.environ.get('VC_USERNAME', '')
     VC_PASSWORD = os.environ.get('VC_PASSWORD', '')
     VC_IP = os.environ.get('VC_IP', '1.1.1.1')
 
